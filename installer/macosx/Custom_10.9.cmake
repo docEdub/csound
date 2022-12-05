@@ -2,6 +2,14 @@
 
 # GLOBAL
 
+# Clear the compiler flags to remove `-mfpmath=sse`, which causes compile errors on Github's macOS build and makes
+# calls to CMake's `check_include_file` macro fail.
+message("Clearing compiler flags.")
+message("CMAKE_C_FLAGS was ${CMAKE_C_FLAGS}")
+message("CMAKE_CXX_FLAGS was ${CMAKE_CXX_FLAGS}")
+set(CMAKE_C_FLAGS "")
+set(CMAKE_CXX_FLAGS "")
+
 #set(CMAKE_BUILD_TYPE "Debug")
 set(CMAKE_BUILD_TYPE "Release")
 set(CMAKE_OSX_ARCHITECTURES  "arm64;x86_64")
