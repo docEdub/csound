@@ -41,6 +41,7 @@ jobs:
           fetch-depth: 1
       - name: Install Dependencies
         run: |
+          export HOMEBREW_NO_INSTALL_CLEANUP=1
           brew install cmake bison flex swig asio libsndfile portaudio portmidi libsamplerate liblo jack openjdk gettext googletest
       - name: Configure build
         run: |
