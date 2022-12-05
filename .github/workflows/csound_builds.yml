@@ -50,7 +50,7 @@ jobs:
           bison --version
           mkdir build
           cd build
-          cmake .. -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 -DBUILD_INSTALLER=1 -DCMAKE_INSTALL_PREFIX=dist -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=0  -DBUILD_LUA_INTERFACE=0 -DUSE_GETTEXT=0 -DUSE_FLTK=0 -DCMAKE_VERBOSE_MAKEFILE=1 --log-level=VERBOSE
+          cmake .. -DCMAKE_OSX_DEPLOYMENT_TARGET=10.9 -DBUILD_INSTALLER=1 -DCMAKE_INSTALL_PREFIX=dist -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTS=0  -DBUILD_LUA_INTERFACE=0 -DUSE_GETTEXT=0 -DUSE_FLTK=0 -DCMAKE_VERBOSE_MAKEFILE=1 --log-level=VERBOSE || (cat CMakeFiles/CMakeOutput.log && cat CMakeFiles/CMakeError.log)
       - name: Build Csound
         run: |
           cd build
