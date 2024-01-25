@@ -314,8 +314,8 @@ QNAN            "qnan"[ \t]*\(
                       }
                       csound->DebugMsg(csound,"Arg %d: %s\n", j+1, mm->arg[j]);
                       strcpy(nn->name, mm->arg[j]);
-                      csound->Message(csound, "defining argument %s ",
-                                      nn->name);
+                      //csound->Message(csound, "defining argument %s ",
+                      //                nn->name);
                       i = 0;
                       nn->body = (char*) csound->Malloc(csound, 100);
                       if (UNLIKELY(nn->body == NULL)) {
@@ -358,7 +358,7 @@ QNAN            "qnan"[ \t]*\(
                         }
                       }
                       nn->body[i] = '\0';
-                      csound->Message(csound, "as...#%s#\n", nn->body);
+                      //csound->Message(csound, "as...#%s#\n", nn->body);
                       nn->acnt = 0;       /* No arguments for arguments */
                       nn->next = csound->orc_macros;
                       csound->orc_macros = nn;
@@ -815,10 +815,10 @@ void do_include(CSOUND *csound, int term, yyscan_t yyscanner)
    PARM->alt_stack[PARM->macro_stack_ptr].line = csound_preget_lineno(yyscanner);
    if (strrchr(buffer,DIRSEP)) {
      PARM->alt_stack[PARM->macro_stack_ptr].path = PARM->path;
-     printf("setting path from %s to ", PARM->path);
+     //printf("setting path from %s to ", PARM->path);
      PARM->path = strdup(buffer); /* wasteful! */
      *(strrchr(PARM->path,DIRSEP)) = '\0';
-     printf("%s\n",PARM->path);
+     //printf("%s\n",PARM->path);
    }
    else PARM->alt_stack[PARM->macro_stack_ptr].path = NULL;
    PARM->alt_stack[PARM->macro_stack_ptr].included = 1;

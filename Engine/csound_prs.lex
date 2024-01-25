@@ -756,7 +756,7 @@ static void do_include(CSOUND *csound, int term, yyscan_t yyscanner)
     if (UNLIKELY(cf == NULL))
       csound->Die(csound,
                   Str("Cannot open #include'd file %s\n"), buffer);
-    printf("stack pointer = %d\n", PARM->macro_stack_ptr);
+    //printf("stack pointer = %d\n", PARM->macro_stack_ptr);
     if (UNLIKELY(PARM->macro_stack_ptr +1 >= PARM->macro_stack_size )) {
       //trace_alt_stack(csound, PARM, __LINE__);
       PARM->alt_stack =
