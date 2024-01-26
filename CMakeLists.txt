@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.5)
 cmake_policy(SET CMP0078 OLD)
 cmake_policy(SET CMP0086 OLD)
 
+add_compile_options(-Wno-deprecated-declarations)
+
 # silence RPATH cmake warning
 set(CMAKE_MACOSX_RPATH 1)
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
@@ -1446,4 +1448,3 @@ else()
  install(DIRECTORY ${CMAKE_SOURCE_DIR}/samples
           DESTINATION ${CMAKE_INSTALL_PREFIX}/share)
 endif()
-
