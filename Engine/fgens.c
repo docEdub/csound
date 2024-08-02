@@ -35,16 +35,18 @@
 #include <stdlib.h>
 /* #undef ISSTRCOD */
 
+#ifdef USE_DOUBLE
 static inline int32_t byte_order(void)
 {
     const int32_t one = 1;
     return (!*((char*) &one));
 }
+#endif
 
 int isstrcod(MYFLT xx)
 {
-    int sel = (byte_order()+1)&1;
 #ifdef USE_DOUBLE
+    int sel = (byte_order()+1)&1;
     union {
       double d;
       int32_t i[2];
@@ -2374,7 +2376,7 @@ static CS_NOINLINE FUNC *ftalloc(const FGDATA *ff)
     CSOUND  *csound = ff->csound;
     FUNC    *ftp = csound->flist[ff->fno];
 
- 
+
     if (UNLIKELY(ftp != NULL)) {
       csound->Warning(csound, Str("replacing previous ftable %d"), ff->fno);
       if (ff->flen != (int32)ftp->flen) {       /* if redraw & diff len, */
